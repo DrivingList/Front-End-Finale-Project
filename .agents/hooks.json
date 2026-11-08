@@ -3,13 +3,13 @@
     "PreInvocation": [
       {
         "type": "command",
-        "command": "node ./scripts/log-prompt.mjs antigravity"
+        "command": "node ../scripts/log-prompt.mjs antigravity"
       }
     ],
     "Stop": [
       {
         "type": "command",
-        "command": "node ./scripts/log-prompt.mjs antigravity"
+        "command": "node ../scripts/log-prompt.mjs antigravity"
       }
     ]
   }
