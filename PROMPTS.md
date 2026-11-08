@@ -312,3 +312,31 @@
 **20:55 · antigravity**
 
 > it worked. this is the cli now
+
+**21:01 · antigravity**
+
+> good now its done/ now we good to officaly start the project?
+
+**21:03 · antigravity**
+
+> for the topic im thinking about space. is there a free api related to that? maybe with NASA?
+
+**21:05 · antigravity**
+
+> there is no free api about plantes and systems?
+
+**21:08 · antigravity**
+
+> nah ok nvmnd we'll do star wars with swapi
+
+**21:24 · antigravity**
+
+> ill choose A. this app  is for star wars fans who wants to look for info about their favorite charechters
+
+**21:46 · antigravity**
+
+> the one you did is fine. its fine all of it
+
+**21:51 · antigravity**
+
+> the prd.md is ready to commit?
