@@ -340,3 +340,15 @@
 **21:51 · antigravity**
 
 > the prd.md is ready to commit?
+
+**21:54 · antigravity**
+
+> jsut a question. in the file i sent you, was the lecturer said anything about using or not javascript?
+
+**21:55 · antigravity**
+
+> so when i look into my repo it says some of the files have javascript in them
+
+**21:56 · antigravity**
+
+> yeah the commit went well.
