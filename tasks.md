@@ -18,7 +18,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Create `src/pages/CharactersPage.tsx` (`/`), `src/pages/CharacterDetailPage.tsx` (`/characters/:id` using `useParams`), placeholder pages for `/favorites` and `/compare`, and `src/pages/NotFoundPage.tsx` (`*`).
 - **Done when:** Clicking a character card opens `/characters/:id` and shows that character's details from the sample data, and the navigation bar switches between all pages without reloading the browser.
 
-## [ ] Task 3: Live SWAPI fetch with loading and error states
+## [x] Task 3: Live SWAPI fetch with loading and error states
 - Replace the local JSON data with `fetch` inside `useEffect` calling `https://swapi.info/api/people`.
 - On `CharacterDetailPage`, fetch the character (`https://swapi.info/api/people/:id`) along with their homeworld, films, and starships URLs.
 - Create `src/components/StatusMessage.tsx` to display clear **loading** and **error** states on screen.
