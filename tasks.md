@@ -12,7 +12,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Create `src/components/CharacterCard.tsx` (in its own file with typed props) and render the list in `src/App.tsx` using `.map()` with a unique `key`.
 - **Done when:** `npm run dev` shows the list of sample characters from the local JSON file with zero console errors, and `npm run build` succeeds.
 
-## [ ] Task 2: Routing with React Router, navbar, and character detail page
+## [x] Task 2: Routing with React Router, navbar, and character detail page
 - Install `react-router-dom`.
 - Create `src/components/Navbar.tsx` using `NavLink` for navigation between Characters (`/`), Favorites (`/favorites`), and Compare (`/compare`).
 - Create `src/pages/CharactersPage.tsx` (`/`), `src/pages/CharacterDetailPage.tsx` (`/characters/:id` using `useParams`), placeholder pages for `/favorites` and `/compare`, and `src/pages/NotFoundPage.tsx` (`*`).

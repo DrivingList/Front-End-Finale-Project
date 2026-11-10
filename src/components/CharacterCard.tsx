@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { SwapiCharacter } from '../types/character';
 import { extractIdFromUrl, formatSwapiMeasurement } from '../utils/swapiHelpers';
 
@@ -15,7 +16,11 @@ export function CharacterCard({ character }: CharacterCardProps) {
         <span className="character-card__badge">{character.birth_year}</span>
       </div>
 
-      <h2 className="character-card__name">{character.name}</h2>
+      <h2 className="character-card__name">
+        <Link to={`/characters/${id}`} className="character-card__link">
+          {character.name}
+        </Link>
+      </h2>
 
       <dl className="character-card__stats">
         <div className="character-card__stat">
@@ -39,6 +44,9 @@ export function CharacterCard({ character }: CharacterCardProps) {
       <div className="character-card__footer">
         <span>{character.films.length} Films</span>
         <span>{character.starships.length} Starships</span>
+        <Link to={`/characters/${id}`} className="character-card__cta">
+          Details &rarr;
+        </Link>
       </div>
     </article>
   );

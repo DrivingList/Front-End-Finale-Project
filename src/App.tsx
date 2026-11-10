@@ -1,7 +1,12 @@
+import { Routes, Route } from 'react-router-dom';
 import mockCharactersData from './data/mockCharacters.json';
 import type { SwapiCharacter } from './types/character';
-import { extractIdFromUrl } from './utils/swapiHelpers';
-import { CharacterCard } from './components/CharacterCard';
+import { Navbar } from './components/Navbar';
+import { CharactersPage } from './pages/CharactersPage';
+import { CharacterDetailPage } from './pages/CharacterDetailPage';
+import { FavoritesPage } from './pages/FavoritesPage';
+import { ComparePage } from './pages/ComparePage';
+import { NotFoundPage } from './pages/NotFoundPage';
 import './App.css';
 
 const sampleCharacters: SwapiCharacter[] = mockCharactersData;
@@ -9,21 +14,22 @@ const sampleCharacters: SwapiCharacter[] = mockCharactersData;
 function App() {
   return (
     <div className="app-shell">
-      <header className="app-header">
-        <p className="app-header__eyebrow">HoloNet Archive</p>
-        <h1>Star Wars Character Explorer</h1>
-        <p className="app-header__subtitle">
-          Showing {sampleCharacters.length} sample characters from the archive
-        </p>
-      </header>
+      <Navbar />
 
       <main className="app-main">
-        <section className="character-grid" aria-label="Star Wars characters">
-          {sampleCharacters.map((character) => {
-            const id = extractIdFromUrl(character.url);
-            return <CharacterCard key={id} character={character} />;
-          })}
-        </section>
+        <Routes>
+          <Route
+            path="/"
+            element={<CharactersPage characters={sampleCharacters} />}
+          />
+          <Route
+            path="/characters/:id"
+            element={<CharacterDetailPage characters={sampleCharacters} />}
+          />
+          <Route path="/favorites" element={<FavoritesPage />} />
+          <Route path="/compare" element={<ComparePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
     </div>
   );

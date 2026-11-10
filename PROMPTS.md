@@ -366,3 +366,15 @@
 **11:59 · antigravity**
 
 > where do i run the npm run dev command?
+
+**12:04 · antigravity**
+
+> i  did only git add . command. i looked at the result and it looks nice but is there more charachters i can add to it?
+
+**12:05 · antigravity**
+
+> so why we needed that mockcharachters
+
+**12:08 · antigravity**
+
+> yeah ok lets do task 2
