@@ -29,26 +29,25 @@ export function CharacterDetailPage({
   const [reloadCount, setReloadCount] = useState<number>(0);
 
   useEffect(() => {
-    if (!id) {
-      setError('Missing character ID in URL.');
-      setIsLoading(false);
-      return;
-    }
-
-    const characterId: string = id;
     let isCancelled = false;
 
     async function loadCharacterDossier() {
+      if (!id) {
+        setError('Missing character ID in URL.');
+        setIsLoading(false);
+        return;
+      }
+
       setIsLoading(true);
       setError(null);
 
       try {
         const charResponse = await fetch(
-          `https://swapi.info/api/people/${encodeURIComponent(characterId)}`,
+          `https://swapi.info/api/people/${encodeURIComponent(id)}`,
         );
         if (!charResponse.ok) {
           throw new Error(
-            `Could not find character #${characterId} (status ${charResponse.status}).`,
+            `Could not find character #${id} (status ${charResponse.status}).`,
           );
         }
         const charData: SwapiCharacter = await charResponse.json();

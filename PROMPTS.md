@@ -426,3 +426,7 @@
 **15:32 · antigravity**
 
 > before i commit it, do you think you can add that model 17 to the charachters list and make it error 404 if someone looks at it
+
+**15:37 · antigravity**
+
+> task 9

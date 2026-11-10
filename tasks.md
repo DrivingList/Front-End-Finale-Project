@@ -52,7 +52,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Add responsive media queries so the navbar, character grid, detail view, and comparison table adapt cleanly to narrow mobile screens.
 - **Done when:** The app looks polished on both desktop and narrow screens (~375px wide) with no horizontal scrolling or overlapping text.
 
-## [ ] Task 9: Architecture documentation and final `README.md`
+## [x] Task 9: Architecture documentation and final `README.md`
 - Create `docs/architecture.md` explaining the folder structure, component hierarchy, routing, and state flow (and link to it from `PRD.md`) to support the project defense.
 - Rewrite `README.md` with what the app does, which API it uses (`https://swapi.info/api`), and how to run the app (`npm run dev`, `npm run build`) and tests (`npm test`, `npm run test:ui`).
 - **Done when:** `README.md` and `docs/architecture.md` are complete, `npm run build` passes with zero errors, and `npm test` passes all tests.
