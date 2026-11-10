@@ -382,3 +382,19 @@
 **12:18 · antigravity**
 
 > yeah go ahead with task 3
+
+**12:41 · antigravity**
+
+> go for task 4
+
+**13:37 · antigravity**
+
+> this is what it opens to me in the browser
+
+**13:39 · antigravity**
+
+> this is what popped up
+
+**13:41 · antigravity**
+
+> i didnt get what the purpose if this task 4

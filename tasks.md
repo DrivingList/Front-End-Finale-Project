@@ -24,7 +24,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Create `src/components/StatusMessage.tsx` to display clear **loading** and **error** states on screen.
 - **Done when:** The list and detail pages display real data from SWAPI (including resolved planet name, film titles, and starship names + models), and loading/error states work properly.
 
-## [ ] Task 4: Unit tests with Vitest and Vitest UI
+## [x] Task 4: Unit tests with Vitest and Vitest UI
 - Install `vitest` and `@vitest/ui`, and add `"test": "vitest run"` and `"test:ui": "vitest --ui"` scripts to `package.json`.
 - Add helper functions in `src/utils/swapiHelpers.ts` for filtering characters by name and comparing two characters' stats.
 - Create `src/utils/swapiHelpers.test.ts` with at least 5 unit tests testing real logic: `extractIdFromUrl`, `parseSwapiNumber` (including `"unknown"` and comma values), `filterCharactersByName`, and `compareStat`.

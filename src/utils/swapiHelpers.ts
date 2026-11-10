@@ -1,3 +1,5 @@
+import type { SwapiCharacter } from '../types/character';
+
 /**
  * Extracts the numeric/string ID from the end of a SWAPI resource URL.
  * Example: "https://swapi.info/api/people/1" -> "1"
@@ -32,4 +34,41 @@ export function formatSwapiMeasurement(value: string, unit: string): string {
     return 'Unknown';
   }
   return `${numeric.toLocaleString()} ${unit}`;
+}
+
+/**
+ * Filters a list of SWAPI characters by name (case-insensitive substring match).
+ */
+export function filterCharactersByName(
+  characters: SwapiCharacter[],
+  query: string,
+): SwapiCharacter[] {
+  const normalizedQuery = query.trim().toLowerCase();
+  if (!normalizedQuery) {
+    return characters;
+  }
+  return characters.filter((character) =>
+    character.name.toLowerCase().includes(normalizedQuery),
+  );
+}
+
+export type StatComparisonWinner = 'first' | 'second' | 'tie' | 'unknown';
+
+/**
+ * Compares two numeric values (or null if unknown) and returns which side has the higher value.
+ */
+export function compareNumericValues(
+  firstValue: number | null,
+  secondValue: number | null,
+): StatComparisonWinner {
+  if (firstValue === null || secondValue === null) {
+    return 'unknown';
+  }
+  if (firstValue > secondValue) {
+    return 'first';
+  }
+  if (secondValue > firstValue) {
+    return 'second';
+  }
+  return 'tie';
 }
