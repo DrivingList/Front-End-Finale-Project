@@ -410,3 +410,19 @@
 **15:09 · antigravity**
 
 > task 7
+
+**15:16 · antigravity**
+
+> tesk 8
+
+**15:23 · antigravity**
+
+> i dont think something really changed
+
+**15:29 · antigravity**
+
+> good it looks much better now but i noticed something. in th charachters page there is model 16 and than model 18 right after it with no model 17
+
+**15:32 · antigravity**
+
+> before i commit it, do you think you can add that model 17 to the charachters list and make it error 404 if someone looks at it

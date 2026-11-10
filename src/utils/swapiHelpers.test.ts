@@ -8,6 +8,7 @@ import {
   formatSwapiMeasurement,
   parseSwapiNumber,
   toggleFavoriteId,
+  withMissingSwapiRecord17,
 } from './swapiHelpers';
 
 const sampleCharacters: SwapiCharacter[] = mockCharactersData;
@@ -61,5 +62,15 @@ describe('swapiHelpers', () => {
 
     const afterRemove = toggleFavoriteId(afterAdd, '4');
     expect(afterRemove).toEqual(['1', '10']);
+  });
+
+  it('withMissingSwapiRecord17 inserts record #17 right after #16 when #16 is present', () => {
+    const listWith16And18: SwapiCharacter[] = [
+      { ...sampleCharacters[0]!, name: 'Jabba', url: 'https://swapi.info/api/people/16' },
+      { ...sampleCharacters[1]!, name: 'Wedge', url: 'https://swapi.info/api/people/18' },
+    ];
+    const result = withMissingSwapiRecord17(listWith16And18);
+    expect(result).toHaveLength(3);
+    expect(extractIdFromUrl(result[1]!.url)).toBe('17');
   });
 });

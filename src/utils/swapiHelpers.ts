@@ -85,3 +85,51 @@ export function toggleFavoriteId(
   }
   return [...currentIds, targetId];
 }
+
+/**
+ * SWAPI's /people endpoint skips ID #17 (goes from #16 Jabba to #18 Wedge).
+ * Inserts a placeholder record for #17 so the archive sequence is continuous
+ * and clicking #17 demonstrates the 404 error state from SWAPI (/api/people/17).
+ */
+export function withMissingSwapiRecord17(
+  characters: SwapiCharacter[],
+): SwapiCharacter[] {
+  const has17 = characters.some(
+    (char) => extractIdFromUrl(char.url) === '17',
+  );
+  if (has17) {
+    return characters;
+  }
+
+  const indexAfter16 = characters.findIndex(
+    (char) => extractIdFromUrl(char.url) === '16',
+  );
+  if (indexAfter16 === -1) {
+    return characters;
+  }
+
+  const corruptedRecord17: SwapiCharacter = {
+    name: 'Unindexed Record #17 (404)',
+    height: 'unknown',
+    mass: 'unknown',
+    hair_color: 'unknown',
+    skin_color: 'unknown',
+    eye_color: 'unknown',
+    birth_year: 'REDACTED',
+    gender: 'unknown',
+    homeworld: '',
+    films: [],
+    species: [],
+    vehicles: [],
+    starships: [],
+    created: '',
+    edited: '',
+    url: 'https://swapi.info/api/people/17',
+  };
+
+  return [
+    ...characters.slice(0, indexAfter16 + 1),
+    corruptedRecord17,
+    ...characters.slice(indexAfter16 + 1),
+  ];
+}

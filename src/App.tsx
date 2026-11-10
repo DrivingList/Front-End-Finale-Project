@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import type { SwapiCharacter } from './types/character';
-import { toggleFavoriteId } from './utils/swapiHelpers';
+import {
+  toggleFavoriteId,
+  withMissingSwapiRecord17,
+} from './utils/swapiHelpers';
 import { Navbar } from './components/Navbar';
 import { CharactersPage } from './pages/CharactersPage';
 import { CharacterDetailPage } from './pages/CharacterDetailPage';
@@ -58,7 +61,7 @@ function App() {
         }
         const data: SwapiCharacter[] = await response.json();
         if (!isCancelled) {
-          setCharacters(data);
+          setCharacters(withMissingSwapiRecord17(data));
         }
       } catch (err) {
         if (!isCancelled) {

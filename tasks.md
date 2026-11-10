@@ -47,7 +47,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Build `src/pages/ComparePage.tsx` (`/compare`) allowing the user to select any two characters from dropdowns and view `ComparisonTable`.
 - **Done when:** Selecting two characters (e.g., Luke Skywalker and Darth Vader) on `/compare` displays their stats side by side and highlights the taller/heavier/more-featured character.
 
-## [ ] Task 8: Custom Star Wars CSS and responsive mobile layout
+## [x] Task 8: Custom Star Wars CSS and responsive mobile layout
 - Style the application with custom CSS (dark galaxy background, gold/cyan accents, readable cards, badges for films and starships, accessible contrast).
 - Add responsive media queries so the navbar, character grid, detail view, and comparison table adapt cleanly to narrow mobile screens.
 - **Done when:** The app looks polished on both desktop and narrow screens (~375px wide) with no horizontal scrolling or overlapping text.

@@ -8,17 +8,32 @@ export interface CharacterCardProps {
   onToggleFavorite?: (id: string) => void;
 }
 
+function getCharacterInitials(name: string): string {
+  const parts = name.trim().split(/[\s-]+/);
+  if (parts.length === 1) {
+    return (parts[0] ?? '').slice(0, 2).toUpperCase();
+  }
+  return ((parts[0]?.[0] ?? '') + (parts[1]?.[0] ?? '')).toUpperCase();
+}
+
 export function CharacterCard({
   character,
   isFavorite = false,
   onToggleFavorite,
 }: CharacterCardProps) {
   const id = extractIdFromUrl(character.url);
+  const initials = getCharacterInitials(character.name);
 
   return (
-    <article className="character-card">
+    <article
+      className={
+        isFavorite
+          ? 'character-card character-card--favorited'
+          : 'character-card'
+      }
+    >
       <div className="character-card__header">
-        <span className="character-card__id">#{id}</span>
+        <span className="character-card__id">RECORD #{id}</span>
         <div className="character-card__header-actions">
           <span className="character-card__badge">{character.birth_year}</span>
           {onToggleFavorite && (
@@ -44,11 +59,16 @@ export function CharacterCard({
         </div>
       </div>
 
-      <h2 className="character-card__name">
-        <Link to={`/characters/${id}`} className="character-card__link">
-          {character.name}
-        </Link>
-      </h2>
+      <div className="character-card__identity">
+        <div className="character-card__avatar" aria-hidden="true">
+          {initials}
+        </div>
+        <h2 className="character-card__name">
+          <Link to={`/characters/${id}`} className="character-card__link">
+            {character.name}
+          </Link>
+        </h2>
+      </div>
 
       <dl className="character-card__stats">
         <div className="character-card__stat">
@@ -70,10 +90,16 @@ export function CharacterCard({
       </dl>
 
       <div className="character-card__footer">
-        <span>{character.films.length} Films</span>
-        <span>{character.starships.length} Starships</span>
+        <div className="character-card__chips">
+          <span className="character-card__chip">
+            {character.films.length} Films
+          </span>
+          <span className="character-card__chip">
+            {character.starships.length} Ships
+          </span>
+        </div>
         <Link to={`/characters/${id}`} className="character-card__cta">
-          Details &rarr;
+          Open Dossier &rarr;
         </Link>
       </div>
     </article>

@@ -31,11 +31,28 @@ export function CharactersPage({
 
   return (
     <section className="page-section">
-      <div className="page-header">
-        <h1>Star Wars Characters</h1>
-        <p className="page-header__subtitle">
-          Explore {characters.length > 0 ? characters.length : 'all'} characters from the SWAPI HoloNet archive. Click any character to view their homeworld, films, and starships.
-        </p>
+      <div className="hero-banner">
+        <div className="hero-banner__content">
+          <span className="hero-banner__tag">
+            GALACTIC HOLONET DATABANK // SECTOR 7G
+          </span>
+          <h1>Star Wars Character Explorer</h1>
+          <p className="page-header__subtitle">
+            Browse intelligence dossiers across the galaxy. Inspect homeworlds, film appearances, and piloted starships, or star characters to build your personal squad.
+          </p>
+        </div>
+        <div className="hero-banner__stats">
+          <div className="hero-stat">
+            <span className="hero-stat__value">
+              {characters.length > 0 ? characters.length : '82'}
+            </span>
+            <span className="hero-stat__label">Total Records</span>
+          </div>
+          <div className="hero-stat">
+            <span className="hero-stat__value">{favoriteIds.length}</span>
+            <span className="hero-stat__label">Starred</span>
+          </div>
+        </div>
       </div>
 
       {!isLoading && !error && (
