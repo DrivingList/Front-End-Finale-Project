@@ -34,4 +34,5 @@ Server, login, Redux, UI libraries, separate pages for starships.
 
 ## Technical decisions
 React + Vite + TypeScript, React Router, plain CSS, Vitest (+ `@vitest/ui`).
-State: favorites live in one place (a context or the top-level App) so every page can read them.
+State: favorites live in one place (the top-level `App`) so every page can read them.
+See [docs/architecture.md](docs/architecture.md) for the full component hierarchy, routing, and data flow.
