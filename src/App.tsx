@@ -131,7 +131,17 @@ function App() {
               />
             }
           />
-          <Route path="/compare" element={<ComparePage />} />
+          <Route
+            path="/compare"
+            element={
+              <ComparePage
+                characters={characters}
+                isLoading={isLoading}
+                error={error}
+                onRetry={handleRetry}
+              />
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>

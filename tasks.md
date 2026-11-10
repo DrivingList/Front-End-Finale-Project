@@ -42,7 +42,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Build `src/pages/FavoritesPage.tsx` (`/favorites`) showing all starred characters with the option to view details or remove them from favorites.
 - **Done when:** Starring a character highlights its star button, shows it on `/favorites`, and keeps it saved after refreshing the page.
 
-## [ ] Task 7: Compare page and comparison table component
+## [x] Task 7: Compare page and comparison table component
 - Create `src/components/ComparisonTable.tsx` (with typed props) that displays two characters side by side: height, mass, birth year, gender, eye/hair color, number of films, and number of starships, highlighting higher numeric stats.
 - Build `src/pages/ComparePage.tsx` (`/compare`) allowing the user to select any two characters from dropdowns and view `ComparisonTable`.
 - **Done when:** Selecting two characters (e.g., Luke Skywalker and Darth Vader) on `/compare` displays their stats side by side and highlights the taller/heavier/more-featured character.
