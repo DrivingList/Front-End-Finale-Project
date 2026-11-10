@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import type { SwapiCharacter } from '../types/character';
-import { extractIdFromUrl } from '../utils/swapiHelpers';
+import {
+  extractIdFromUrl,
+  filterCharactersByName,
+} from '../utils/swapiHelpers';
 import { CharacterCard } from '../components/CharacterCard';
+import { SearchBar } from '../components/SearchBar';
 import { StatusMessage } from '../components/StatusMessage';
 
 export interface CharactersPageProps {
@@ -16,6 +21,10 @@ export function CharactersPage({
   error,
   onRetry,
 }: CharactersPageProps) {
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const filteredCharacters = filterCharactersByName(characters, searchQuery);
+
   return (
     <section className="page-section">
       <div className="page-header">
@@ -24,6 +33,15 @@ export function CharactersPage({
           Explore {characters.length > 0 ? characters.length : 'all'} characters from the SWAPI HoloNet archive. Click any character to view their homeworld, films, and starships.
         </p>
       </div>
+
+      {!isLoading && !error && (
+        <SearchBar
+          value={searchQuery}
+          onChange={setSearchQuery}
+          resultCount={filteredCharacters.length}
+          totalCount={characters.length}
+        />
+      )}
 
       {isLoading && (
         <StatusMessage
@@ -42,9 +60,26 @@ export function CharactersPage({
         />
       )}
 
-      {!isLoading && !error && (
+      {!isLoading && !error && filteredCharacters.length === 0 && (
+        <div className="empty-search-state" role="status">
+          <h2>No Matching Characters</h2>
+          <p>
+            No characters in the archive matched{' '}
+            <code>&ldquo;{searchQuery}&rdquo;</code>.
+          </p>
+          <button
+            type="button"
+            className="status-message__button"
+            onClick={() => setSearchQuery('')}
+          >
+            Reset Search
+          </button>
+        </div>
+      )}
+
+      {!isLoading && !error && filteredCharacters.length > 0 && (
         <div className="character-grid" aria-label="Star Wars characters">
-          {characters.map((character) => {
+          {filteredCharacters.map((character) => {
             const id = extractIdFromUrl(character.url);
             return <CharacterCard key={id} character={character} />;
           })}

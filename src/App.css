@@ -91,6 +91,91 @@
   font-size: 0.98rem;
 }
 
+.search-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.search-bar__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1 1 300px;
+}
+
+.search-bar__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.8;
+}
+
+.search-bar__control {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar__input {
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.search-bar__input:focus {
+  border-color: #facc15;
+}
+
+.search-bar__clear {
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-h);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search-bar__clear:hover {
+  border-color: #facc15;
+  color: #facc15;
+}
+
+.search-bar__count {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.empty-search-state {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.empty-search-state h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
 .character-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));

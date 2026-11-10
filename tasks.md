@@ -30,7 +30,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Create `src/utils/swapiHelpers.test.ts` with at least 5 unit tests testing real logic: `extractIdFromUrl`, `parseSwapiNumber` (including `"unknown"` and comma values), `filterCharactersByName`, and `compareStat`.
 - **Done when:** `npm test` passes all unit tests (5+ tests) and `npm run test:ui` launches the Vitest browser UI.
 
-## [ ] Task 5: Search bar for filtering characters
+## [x] Task 5: Search bar for filtering characters
 - Create `src/components/SearchBar.tsx` with typed props (`value`, `onChange`, `resultCount`, `totalCount`).
 - Connect `SearchBar` to `CharactersPage` using `filterCharactersByName` so typing filters the character list in real time.
 - Show a friendly message when no characters match the search query, with a button to clear the search.
