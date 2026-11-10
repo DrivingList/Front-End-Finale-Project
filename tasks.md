@@ -5,7 +5,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 
 ---
 
-## [ ] Task 1: Local sample data, TypeScript types, and character list
+## [x] Task 1: Local sample data, TypeScript types, and character list
 - Create `src/types/character.ts` with interfaces for SWAPI character, planet, film, and starship data (no `any`).
 - Create `src/utils/swapiHelpers.ts` with helper functions (`extractIdFromUrl`, `parseSwapiNumber`).
 - Create `src/data/mockCharacters.json` with a sample list of Star Wars characters matching the SWAPI structure.
