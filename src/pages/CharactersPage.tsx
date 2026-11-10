@@ -13,6 +13,8 @@ export interface CharactersPageProps {
   isLoading: boolean;
   error: string | null;
   onRetry: () => void;
+  favoriteIds: string[];
+  onToggleFavorite: (id: string) => void;
 }
 
 export function CharactersPage({
@@ -20,6 +22,8 @@ export function CharactersPage({
   isLoading,
   error,
   onRetry,
+  favoriteIds,
+  onToggleFavorite,
 }: CharactersPageProps) {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -81,7 +85,14 @@ export function CharactersPage({
         <div className="character-grid" aria-label="Star Wars characters">
           {filteredCharacters.map((character) => {
             const id = extractIdFromUrl(character.url);
-            return <CharacterCard key={id} character={character} />;
+            return (
+              <CharacterCard
+                key={id}
+                character={character}
+                isFavorite={favoriteIds.includes(id)}
+                onToggleFavorite={onToggleFavorite}
+              />
+            );
           })}
         </div>
       )}

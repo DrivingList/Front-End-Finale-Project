@@ -4,16 +4,44 @@ import { extractIdFromUrl, formatSwapiMeasurement } from '../utils/swapiHelpers'
 
 export interface CharacterCardProps {
   character: SwapiCharacter;
+  isFavorite?: boolean;
+  onToggleFavorite?: (id: string) => void;
 }
 
-export function CharacterCard({ character }: CharacterCardProps) {
+export function CharacterCard({
+  character,
+  isFavorite = false,
+  onToggleFavorite,
+}: CharacterCardProps) {
   const id = extractIdFromUrl(character.url);
 
   return (
     <article className="character-card">
       <div className="character-card__header">
         <span className="character-card__id">#{id}</span>
-        <span className="character-card__badge">{character.birth_year}</span>
+        <div className="character-card__header-actions">
+          <span className="character-card__badge">{character.birth_year}</span>
+          {onToggleFavorite && (
+            <button
+              type="button"
+              className={
+                isFavorite
+                  ? 'favorite-btn favorite-btn--active'
+                  : 'favorite-btn'
+              }
+              onClick={() => onToggleFavorite(id)}
+              aria-pressed={isFavorite}
+              aria-label={
+                isFavorite
+                  ? `Remove ${character.name} from favorites`
+                  : `Add ${character.name} to favorites`
+              }
+              title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              {isFavorite ? '★' : '☆'}
+            </button>
+          )}
+        </div>
       </div>
 
       <h2 className="character-card__name">

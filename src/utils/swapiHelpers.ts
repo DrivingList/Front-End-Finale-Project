@@ -72,3 +72,16 @@ export function compareNumericValues(
   }
   return 'tie';
 }
+
+/**
+ * Adds a character ID to the favorites list if not present, or removes it if already present.
+ */
+export function toggleFavoriteId(
+  currentIds: string[],
+  targetId: string,
+): string[] {
+  if (currentIds.includes(targetId)) {
+    return currentIds.filter((id) => id !== targetId);
+  }
+  return [...currentIds, targetId];
+}

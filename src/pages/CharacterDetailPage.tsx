@@ -9,7 +9,15 @@ import type {
 import { formatSwapiMeasurement } from '../utils/swapiHelpers';
 import { StatusMessage } from '../components/StatusMessage';
 
-export function CharacterDetailPage() {
+export interface CharacterDetailPageProps {
+  favoriteIds: string[];
+  onToggleFavorite: (id: string) => void;
+}
+
+export function CharacterDetailPage({
+  favoriteIds,
+  onToggleFavorite,
+}: CharacterDetailPageProps) {
   const { id } = useParams<{ id: string }>();
 
   const [character, setCharacter] = useState<SwapiCharacter | null>(null);
@@ -106,6 +114,8 @@ export function CharacterDetailPage() {
     };
   }, [id, reloadCount]);
 
+  const isFavorite = id ? favoriteIds.includes(id) : false;
+
   return (
     <section className="page-section">
       <div className="detail-nav">
@@ -131,14 +141,30 @@ export function CharacterDetailPage() {
         />
       )}
 
-      {!isLoading && !error && character && (
+      {!isLoading && !error && character && id && (
         <article className="detail-card">
           <div className="detail-card__header">
             <div>
               <span className="character-card__id">Archive ID #{id}</span>
               <h1>{character.name}</h1>
             </div>
-            <span className="character-card__badge">{character.birth_year}</span>
+            <div className="character-card__header-actions">
+              <span className="character-card__badge">
+                {character.birth_year}
+              </span>
+              <button
+                type="button"
+                className={
+                  isFavorite
+                    ? 'favorite-btn favorite-btn--detail favorite-btn--active'
+                    : 'favorite-btn favorite-btn--detail'
+                }
+                onClick={() => onToggleFavorite(id)}
+                aria-pressed={isFavorite}
+              >
+                {isFavorite ? '★ Favorited' : '☆ Add to Favorites'}
+              </button>
+            </div>
           </div>
 
           <dl className="detail-stats-grid">

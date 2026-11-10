@@ -36,7 +36,7 @@ Work on **one task at a time**, test in the browser, and commit after each task.
 - Show a friendly message when no characters match the search query, with a button to clear the search.
 - **Done when:** Typing `"sky"` in the search box shows only matching characters (e.g., Luke Skywalker, Anakin Skywalker, Shmi Skywalker), and clearing the input restores all 82 characters.
 
-## [ ] Task 6: Favorites state with `localStorage` and Favorites page
+## [x] Task 6: Favorites state with `localStorage` and Favorites page
 - Create a favorites hook/state at the top level (`App.tsx`) backed by `localStorage` so starred character IDs persist across page reloads.
 - Pass `isFavorite` and `onToggleFavorite` props to `CharacterCard` and `CharacterDetailPage`.
 - Build `src/pages/FavoritesPage.tsx` (`/favorites`) showing all starred characters with the option to view details or remove them from favorites.

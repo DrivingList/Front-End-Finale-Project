@@ -7,6 +7,7 @@ import {
   filterCharactersByName,
   formatSwapiMeasurement,
   parseSwapiNumber,
+  toggleFavoriteId,
 } from './swapiHelpers';
 
 const sampleCharacters: SwapiCharacter[] = mockCharactersData;
@@ -52,5 +53,13 @@ describe('swapiHelpers', () => {
     expect(compareNumericValues(77, 136)).toBe('second');
     expect(compareNumericValues(77, 77)).toBe('tie');
     expect(compareNumericValues(172, null)).toBe('unknown');
+  });
+
+  it('toggleFavoriteId adds new IDs and removes existing IDs immutably', () => {
+    const afterAdd = toggleFavoriteId(['1', '4'], '10');
+    expect(afterAdd).toEqual(['1', '4', '10']);
+
+    const afterRemove = toggleFavoriteId(afterAdd, '4');
+    expect(afterRemove).toEqual(['1', '10']);
   });
 });
